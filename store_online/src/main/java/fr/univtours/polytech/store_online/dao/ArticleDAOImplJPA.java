@@ -19,7 +19,7 @@ public class ArticleDAOImplJPA implements ArticleDAO{
     @SuppressWarnings("unchecked") // Pour éviter les warnings de cast
     @Override
     public List<ArticleBean> getAllArticles() {
-        Query requete = (Query) em.createNativeQuery("SELECT * FROM ARTICLE", ArticleBean.class);
+        Query requete = (Query) em.createNativeQuery("SELECT * FROM boutique.article", ArticleBean.class);
         return requete.getResultList();
     }
 

@@ -2,6 +2,7 @@ package fr.univtours.polytech.store_online.model;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,9 +13,16 @@ public class ArticleBean implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Integer id;
+
+    @Column(name = "NAME")
     private String name;
+
+    @Column(name = "PRICE")
     private Float price;
+
+    @Column(name = "NB_RESTANT")
     private Integer nbRestant;
 
     public Integer getId() {

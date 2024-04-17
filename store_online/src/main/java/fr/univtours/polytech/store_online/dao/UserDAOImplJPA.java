@@ -7,6 +7,7 @@ import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 
 @Stateless
 public class UserDAOImplJPA implements UserDAO{
@@ -18,12 +19,20 @@ public class UserDAOImplJPA implements UserDAO{
     @SuppressWarnings("unchecked") // Pour éviter les warnings de cast
     @Override
     public List<Userbean> getAllUsers() {
-        Query requete = em.createNativeQuery("SELECT * FROM USER", Userbean.class);
+        Query requete = em.createNativeQuery("SELECT * FROM boutique.user", Userbean.class);
         return requete.getResultList();
     }
 
     @Override
     public Userbean getUser(String login) {
         return em.find(Userbean.class, login);
+    }
+
+    @Override
+    public boolean checkUserCredentials(String username, String password) {
+        TypedQuery<Userbean> query = em.createQuery("SELECT u FROM User u WHERE u.username = :username AND u.password = :password", Userbean.class);
+        query.setParameter("username", username);
+        query.setParameter("password", password);
+        return !query.getResultList().isEmpty();
     }
 }
