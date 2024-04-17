@@ -5,7 +5,8 @@
     <title>Liste des articles</title>
 </head>
 <body>
-    <h1>Bienvenue, ${sessionScope.currentUser}</h1> <!-- Affichage du nom d'utilisateur -->
+    <h1>Bienvenue, ${sessionScope.currentUser}</h1> 
+    <a href="logout">Déconnexion</a>
     <h2>Liste des articles</h2>
     <table border="1">
         <tr>
