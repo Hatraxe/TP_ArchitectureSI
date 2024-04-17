@@ -26,6 +26,9 @@
             <td>${cart.totalPrice}</td>
         </tr>
     </table>
+    <form>
+        <input type="submit" value="Payer">
+    </form>
     <a href="articles">Retour aux articles</a>
 </body>
 </html>
