@@ -22,7 +22,7 @@
                 <td>${article.price}</td>
                 <td>${article.nbRestant}</td>
                 <td><a href="updateCart?articleId=${article.id}&action=remove">-</a></td>
-                <td>${fn:length(cart.items)}</td>
+                <td>${cart.getItemQuantity(article.id)}</td>
                 <td><a href="updateCart?articleId=${article.id}&action=add">+</a></td>
             </tr>
         </c:forEach>

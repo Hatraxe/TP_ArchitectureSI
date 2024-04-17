@@ -15,6 +15,7 @@ public class CartBean implements Serializable {
         return items;
     }
 
+    // Method to add an item to the cart
     public void addItem(ArticleBean article, int quantity) {
         for (CartItem item : items) {
             if (item.getArticle().getId().equals(article.getId())) {
@@ -25,43 +26,22 @@ public class CartBean implements Serializable {
         items.add(new CartItem(article, quantity));
     }
 
+    // Method to remove an item from the cart
     public void removeItem(ArticleBean article, int quantity) {
-        for (CartItem item : items) {
+        items.removeIf(item -> item.getArticle().getId().equals(article.getId()) && (item.getQuantity() - quantity) <= 0);
+        items.forEach(item -> {
             if (item.getArticle().getId().equals(article.getId())) {
-                int newQuantity = item.getQuantity() - quantity;
-                if (newQuantity > 0) {
-                    item.setQuantity(newQuantity);
-                } else {
-                    items.remove(item);
-                }
-                return;
+                item.setQuantity(item.getQuantity() - quantity);
             }
-        }
+        });
     }
 
-    public static class CartItem implements Serializable {
-        private ArticleBean article;
-        private int quantity;
-
-        public CartItem(ArticleBean article, int quantity) {
-            this.article = article;
-            this.quantity = quantity;
-        }
-
-        public ArticleBean getArticle() {
-            return article;
-        }
-
-        public void setArticle(ArticleBean article) {
-            this.article = article;
-        }
-
-        public int getQuantity() {
-            return quantity;
-        }
-
-        public void setQuantity(int quantity) {
-            this.quantity = quantity;
-        }
+    // Method to get the quantity of a specific article in the cart
+    public int getItemQuantity(Integer articleId) {
+        return items.stream()
+                    .filter(item -> item.getArticle().getId().equals(articleId))
+                    .findFirst()
+                    .map(CartItem::getQuantity)
+                    .orElse(0);
     }
 }
