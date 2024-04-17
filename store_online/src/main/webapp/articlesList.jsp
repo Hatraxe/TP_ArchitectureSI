@@ -8,24 +8,23 @@
     <h1>Liste des articles</h1>
     <table border="1">
         <tr>
-            
             <th>Nom</th>
             <th>Prix</th>
             <th>Restant</th>
             <th>Enlever 1 au panier</th>
             <th>Actuellement dans votre panier</th>
             <th>Ajouter 1 au panier</th>
-    
         </tr>
         <c:forEach items="${RESULTS_LIST}" var="result">
             <tr>
-                
-                <!-- <td>${result.studentBean.firstName}</td>
-                <td>${result.studentBean.name}</td>
-                <td>${result.noteBean.note}</td> -->
+                <td>${result.nom}</td>
+                <td>${result.prix}</td>
+                <td>${result.restant}</td>
+                <td>Enlever 1 au panier</td>
+                <td>Actuellement dans votre panier</td>
+                <td>Ajouter 1 au panier</td>
             </tr>
         </c:forEach>
     </table>
-   
 </body>
 </html>
