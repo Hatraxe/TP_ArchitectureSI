@@ -44,4 +44,10 @@ public class CartBean implements Serializable {
                     .map(CartItem::getQuantity)
                     .orElse(0);
     }
+
+    public double getTotalPrice() {
+        return items.stream()
+                    .mapToDouble(item -> item.getArticle().getPrice() * item.getQuantity())
+                    .sum();
+    }
 }
