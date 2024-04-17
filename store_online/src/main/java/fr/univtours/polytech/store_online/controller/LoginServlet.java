@@ -18,7 +18,7 @@ public class LoginServlet extends HttpServlet {
 
         
         // Redirection vers la page de gestion des notes.
-        request.getRequestDispatcher("notesList.jsp").forward(request, response);
+        request.getRequestDispatcher("login.jsp").forward(request, response);
 
     }
 
