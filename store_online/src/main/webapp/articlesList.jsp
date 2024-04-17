@@ -16,16 +16,17 @@
             <th>Actuellement dans votre panier</th>
             <th>Ajouter 1 au panier</th>
         </tr>
-        <c:forEach items="${ARTICLE_LIST}" var="result">
+        <c:forEach items="${ARTICLE_LIST}" var="article">
             <tr>
-                <td>${result.nom}</td>
-                <td>${result.prix}</td>
-                <td>${result.nbRestant}</td>
-                <td>Enlever 1 au panier</td>
+                <td>${article.nom}</td>
+                <td>${article.prix}</td>
+                <td>${article.nbRestant}</td>
+                <td><a href="updateCart?articleId=${article.id}&action=remove">Enlever 1</a></td>
                 <td>Actuellement dans votre panier</td>
-                <td>Ajouter 1 au panier</td>
+                <td><a href="updateCart?articleId=${article.id}&action=add">Ajouter 1</a></td>
             </tr>
         </c:forEach>
     </table>
+    <a href="cart">Voir le panier</a>
 </body>
 </html>

@@ -18,15 +18,12 @@ public class ArticleBusinessImpl implements ArticleBusiness{
     }
 
     @Override
-    public ArticleBean getArticlebyId(Integer id) {
-        // TODO Auto-generated method stub
-        return null;
+    public ArticleBean getArticleById(int articleId) {
+        return articleDAO.findArticleById(articleId);
     }
 
-    @Override
-    public ArticleBean getArticlebyName(String name) {
-        // TODO Auto-generated method stub
-        return null;
+    public void updateArticle(ArticleBean article) {
+        articleDAO.update(article);
     }
 
 }
