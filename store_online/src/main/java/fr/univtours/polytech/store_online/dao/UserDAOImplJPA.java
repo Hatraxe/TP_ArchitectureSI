@@ -10,7 +10,7 @@ import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
 
 @Stateless
-public class UserDAOImplJPA implements UserDAO{
+public class UserDAOImplJPA implements UserDAO {
 
     // L'objet EntityManager qui va permettre d'effectuer les requêtes en BDD.
     @PersistenceContext(unitName = "StoreOnlinePU")
@@ -31,7 +31,8 @@ public class UserDAOImplJPA implements UserDAO{
     @Override
     public boolean checkUserCredentials(String username, String password) {
 
-        TypedQuery<Userbean> query = em.createQuery("SELECT u FROM Userbean u WHERE u.login = :username AND u.password = :password", Userbean.class);
+        TypedQuery<Userbean> query = em.createQuery(
+                "SELECT u FROM Userbean u WHERE u.login = :username AND u.password = :password", Userbean.class);
         query.setParameter("username", username);
         query.setParameter("password", password);
         return !query.getResultList().isEmpty();

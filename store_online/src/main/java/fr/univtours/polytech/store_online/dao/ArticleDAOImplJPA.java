@@ -9,9 +9,8 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
 
-
 @Stateless
-public class ArticleDAOImplJPA implements ArticleDAO{
+public class ArticleDAOImplJPA implements ArticleDAO {
 
     // L'objet EntityManager qui va permettre d'effectuer les requêtes en BDD.
     @PersistenceContext(unitName = "StoreOnlinePU")

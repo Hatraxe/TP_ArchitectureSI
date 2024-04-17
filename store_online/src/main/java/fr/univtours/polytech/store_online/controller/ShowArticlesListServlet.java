@@ -17,7 +17,8 @@ public class ShowArticlesListServlet extends HttpServlet {
     @Inject
     private ArticleBusiness articleBusiness;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         HttpSession session = request.getSession();
         CartBean cart = (CartBean) session.getAttribute("cart");
         if (cart == null) {
@@ -28,6 +29,5 @@ public class ShowArticlesListServlet extends HttpServlet {
         request.setAttribute("cart", cart);
         request.getRequestDispatcher("articlesList.jsp").forward(request, response);
     }
-    
 
 }

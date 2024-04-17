@@ -6,7 +6,7 @@ import fr.univtours.polytech.store_online.dao.ArticleDAO;
 import fr.univtours.polytech.store_online.model.ArticleBean;
 import jakarta.inject.Inject;
 
-public class ArticleBusinessImpl implements ArticleBusiness{
+public class ArticleBusinessImpl implements ArticleBusiness {
 
     @Inject
     private ArticleDAO articleDAO;

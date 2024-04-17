@@ -14,7 +14,8 @@ import jakarta.servlet.http.HttpSession;
 public class ShowCartServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         HttpSession session = request.getSession();
         CartBean cart = (CartBean) session.getAttribute("cart");
         if (cart == null) {
@@ -25,4 +26,3 @@ public class ShowCartServlet extends HttpServlet {
         request.getRequestDispatcher("cart.jsp").forward(request, response);
     }
 }
-
