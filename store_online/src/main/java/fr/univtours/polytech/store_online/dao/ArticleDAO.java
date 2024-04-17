@@ -8,7 +8,10 @@ public interface ArticleDAO {
     public List<ArticleBean> getAllArticles();
 
     public ArticleBean getArticlebyId(Integer id);
+
     public ArticleBean getArticlebyName(String name);
+
     public ArticleBean findArticleById(int articleId);
+
     public void update(ArticleBean article);
 }

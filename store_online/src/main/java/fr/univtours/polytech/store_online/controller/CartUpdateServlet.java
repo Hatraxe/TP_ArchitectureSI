@@ -19,7 +19,8 @@ public class CartUpdateServlet extends HttpServlet {
     private ArticleBusiness articleBusiness;
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         HttpSession session = request.getSession();
         CartBean cart = (CartBean) session.getAttribute("cart");
         if (cart == null) {
@@ -37,14 +38,15 @@ public class CartUpdateServlet extends HttpServlet {
                     if (article.getNbRestant() > 0) {
                         cart.addItem(article, 1);
                         article.setNbRestant(article.getNbRestant() - 1);
-                        articleBusiness.updateArticle(article);  
+                        articleBusiness.updateArticle(article);
                     }
                     break;
                 case "remove":
-                    if (cart.getItems().stream().anyMatch(item -> item.getArticle().getId().equals(article.getId()) && item.getQuantity() > 0)) {
+                    if (cart.getItems().stream().anyMatch(
+                            item -> item.getArticle().getId().equals(article.getId()) && item.getQuantity() > 0)) {
                         cart.removeItem(article, 1);
                         article.setNbRestant(article.getNbRestant() + 1);
-                        articleBusiness.updateArticle(article);  
+                        articleBusiness.updateArticle(article);
                     }
                     break;
             }

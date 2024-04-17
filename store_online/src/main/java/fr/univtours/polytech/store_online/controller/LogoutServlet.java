@@ -13,11 +13,12 @@ import jakarta.servlet.http.HttpSession;
 public class LogoutServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession(false); // Get session if exists
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        HttpSession session = request.getSession(false);
         if (session != null) {
-            session.invalidate(); // Invalidate session if exists
+            session.invalidate();
         }
-        response.sendRedirect("login.jsp"); // Redirect to login page
+        response.sendRedirect("login.jsp");
     }
 }
