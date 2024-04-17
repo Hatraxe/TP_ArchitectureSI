@@ -19,8 +19,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                
-        
+
         request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
@@ -30,16 +29,20 @@ public class LoginServlet extends HttpServlet {
         // Récupérer les données du formulaire
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-    
+
         if (userBusiness.checkUser(username, password)) {
-            // Si bon mot de passe et nom d'utilisateur alors rediriger vers la page de la liste des articles
+            // Si bon mot de passe et nom d'utilisateur, enregistrer l'utilisateur dans la
+            // session
+            request.getSession().setAttribute("currentUser", username);
+
+            // Rediriger vers la page de la liste des articles
             response.sendRedirect("articles");
         } else {
-            // Sinon afficher le message d'erreur en rouge "Le nom d'utilisateur ou le mot de passe saisi n'est pas valide."
+            // Sinon afficher le message d'erreur en rouge
             request.setAttribute("errorMessage", "Le nom d'utilisateur ou le mot de passe saisi n'est pas valide.");
             // Rediriger vers la page JSP pour afficher le message d'erreur
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
-    
+
 }
