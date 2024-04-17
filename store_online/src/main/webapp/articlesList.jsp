@@ -18,12 +18,12 @@
         </tr>
         <c:forEach items="${ARTICLE_LIST}" var="article">
             <tr>
-                <td>${article.nom}</td>
-                <td>${article.prix}</td>
+                <td>${article.name}</td>
+                <td>${article.price}</td>
                 <td>${article.nbRestant}</td>
-                <td><a href="updateCart?articleId=${article.id}&action=remove">Enlever 1</a></td>
-                <td>Actuellement dans votre panier</td>
-                <td><a href="updateCart?articleId=${article.id}&action=add">Ajouter 1</a></td>
+                <td><a href="updateCart?articleId=${article.id}&action=remove">-</a></td>
+                <td>0</td>
+                <td><a href="updateCart?articleId=${article.id}&action=add">+</a></td>
             </tr>
         </c:forEach>
     </table>
