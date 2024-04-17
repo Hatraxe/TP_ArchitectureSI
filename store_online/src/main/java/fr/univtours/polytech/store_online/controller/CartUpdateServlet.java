@@ -37,14 +37,14 @@ public class CartUpdateServlet extends HttpServlet {
                     if (article.getNbRestant() > 0) {
                         cart.addItem(article, 1);
                         article.setNbRestant(article.getNbRestant() - 1);
-                        articleBusiness.updateArticle(article);  // Assuming a method to update article in DB
+                        articleBusiness.updateArticle(article);  
                     }
                     break;
                 case "remove":
                     if (cart.getItems().stream().anyMatch(item -> item.getArticle().getId().equals(article.getId()) && item.getQuantity() > 0)) {
                         cart.removeItem(article, 1);
                         article.setNbRestant(article.getNbRestant() + 1);
-                        articleBusiness.updateArticle(article);  // Assuming a method to update article in DB
+                        articleBusiness.updateArticle(article);  
                     }
                     break;
             }
