@@ -19,7 +19,7 @@ public class ShowArticlesListServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("ARTICLE_LIST", this.articleBusiness.getAllArticles());
-        request.getRequestDispatcher("articleList.jsp").forward(request, response);
+        request.getRequestDispatcher("articlesList.jsp").forward(request, response);
     }
     
 

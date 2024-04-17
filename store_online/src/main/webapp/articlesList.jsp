@@ -15,7 +15,7 @@
             <th>Actuellement dans votre panier</th>
             <th>Ajouter 1 au panier</th>
         </tr>
-        <c:forEach items="${RESULTS_LIST}" var="result">
+        <c:forEach items="${ARTICLE_LIST}" var="result">
             <tr>
                 <td>${result.nom}</td>
                 <td>${result.prix}</td>
