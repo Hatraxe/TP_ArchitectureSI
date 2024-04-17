@@ -30,7 +30,7 @@ public class UserDAOImplJPA implements UserDAO{
 
     @Override
     public boolean checkUserCredentials(String username, String password) {
-        TypedQuery<Userbean> query = em.createQuery("SELECT u FROM User u WHERE u.username = :username AND u.password = :password", Userbean.class);
+        TypedQuery<Userbean> query = em.createQuery("SELECT u FROM Userbean u WHERE u.username = :username AND u.password = :password", Userbean.class);
         query.setParameter("username", username);
         query.setParameter("password", password);
         return !query.getResultList().isEmpty();
