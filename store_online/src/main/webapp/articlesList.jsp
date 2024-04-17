@@ -20,7 +20,7 @@
             <tr>
                 <td>${result.nom}</td>
                 <td>${result.prix}</td>
-                <td>${result.restant}</td>
+                <td>${result.nbRestant}</td>
                 <td>Enlever 1 au panier</td>
                 <td>Actuellement dans votre panier</td>
                 <td>Ajouter 1 au panier</td>

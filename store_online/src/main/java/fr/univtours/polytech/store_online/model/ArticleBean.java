@@ -7,8 +7,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-@Entity(name = "ARTICLE")
+@Entity
+@Table(name = "ARTICLE")
 public class ArticleBean implements Serializable {
 
     @Id
@@ -25,6 +27,7 @@ public class ArticleBean implements Serializable {
     @Column(name = "NB_RESTANT")
     private Integer nbRestant;
 
+    // Getters and Setters
     public Integer getId() {
         return id;
     }
